@@ -1,4 +1,6 @@
-# ROS 2 wrapper for Optoforce 3-axis force sensor (OMD-20-FE-200N)
+# ROS 2 wrapper for Optoforce 3-axis force sensor 
+## Sensor type: OMD-20-FE-200N
+<img src="https://img.shields.io/badge/ros--version-humble-green"/>  <img src="https://img.shields.io/badge/platform%20-Ubuntu%2022.04-orange"/>
 
 ## Requirements: 
 ```
@@ -11,9 +13,9 @@ pip3 install optoforce
 - [ ] add Wrench visualization in RViz
 - [ ] test both launch files
 - [ ] how to determine serial ports?
-- [] check if publish rate is appropriate
+- [ ] check if publish rate is appropriate
 
-[OptoForce custom DAQ specification - SPI](http://www.cs.cmu.edu/~cga/optoforce/optoforce-spi.pdf)
+[OptoForce custom DAQ specification - SPI](http://www.cs.cmu.edu/~cga/optoforce/optoforce-spi.pdf)  
 [optoforce Python library](https://pypi.org/project/optoforce/)
 
 1. Change parameters values in `config/optoforce_params.yaml`
