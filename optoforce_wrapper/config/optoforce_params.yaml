@@ -1,0 +1,8 @@
+/optoforce_node:
+  ros__parameters:
+    sensor_serial_numbers: ['IFE048', 'IFE049']
+    port: ['/dev/ttyUSB0', '/dev/ttyUSB1']
+    speed: [100, 100]
+    filter: [15, 15]
+    zero: [True, True]
+    scale: "[[560, 546, 81], [587, 530, 81]]"

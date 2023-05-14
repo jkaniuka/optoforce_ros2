@@ -1,1 +1,1 @@
-# optoforce_ros2
+# ROS 2 wrapper for Optoforce 3-axis force sensor (OMD-20-FE-200N)
