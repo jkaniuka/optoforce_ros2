@@ -31,7 +31,7 @@ def generate_launch_description():
         cmd=[[
             'ros2 run tf2_ros static_transform_publisher ',
             '--z 0.017 --yaw 3.14159265359 ',
-            '--frame-id sensor_link --child-frame-id force_frame',
+            '--frame-id sensor_link --child-frame-id frame_IFE048',
             ]],
         shell=True,
         )

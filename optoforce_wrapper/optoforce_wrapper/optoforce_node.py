@@ -45,7 +45,7 @@ class OptoforcePublisher(Node):
             for idx, sensor in enumerate(self.sensors):
                 msg = WrenchStamped()
                 msg.header.stamp = self.get_clock().now().to_msg()
-                msg.header.frame_id = 'force_frame'
+                msg.header.frame_id = 'frame_' + self.sensor_serial_numbers[idx]
                 #measurement = sensor.read(only_latest_data=True)
                 measurement = [random.uniform(1.0, 100.0), random.uniform(1.0, 100.0), random.uniform(1.0, 100.0)]
                 msg.wrench.force.x = measurement[0] / self.scale[idx][0]
