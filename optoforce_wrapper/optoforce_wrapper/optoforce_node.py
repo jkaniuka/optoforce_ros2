@@ -10,6 +10,7 @@ class OptoforcePublisher(Node):
 
     def __init__(self):
         super().__init__('optoforce_node')
+        self.declare_parameter('num_of_sensors_in_use', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_INTEGER))
         self.declare_parameter('sensor_serial_numbers', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_STRING_ARRAY))
         self.declare_parameter('port', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_STRING_ARRAY))
         self.declare_parameter('speed', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_INTEGER_ARRAY))
@@ -17,6 +18,7 @@ class OptoforcePublisher(Node):
         self.declare_parameter('zero', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_BOOL_ARRAY))
         self.declare_parameter('scale', descriptor = ParameterDescriptor(type = ParameterType.PARAMETER_STRING))
 
+        self.num_of_sensors_in_use = self.get_parameter('num_of_sensors_in_use').get_parameter_value().integer_value
         self.sensor_serial_numbers = self.get_parameter('sensor_serial_numbers').get_parameter_value().string_array_value
         self.port = self.get_parameter('port').get_parameter_value().string_array_value
         self.speed = self.get_parameter('speed').get_parameter_value().integer_array_value
@@ -27,30 +29,31 @@ class OptoforcePublisher(Node):
         self.sensors = [] 
         self.pubs = []
 
-        for i in range(len(self.sensor_serial_numbers)):
+        for i in range(self.num_of_sensors_in_use):
             self.sensors.append(OptoForce(port = self.port[i], speed_hz=self.speed[i], filter_hz=self.filter[i], zero=self.zero[i]))
             self.pubs.append(self.create_publisher(WrenchStamped, 'optoforce_' + self.sensor_serial_numbers[i], 10))
 
-        timer_period = 1/max(self.speed)  #seconds
+        for i in range(self.num_of_sensors_in_use):
+            self.sensors[i].connect()
+
+        timer_period =  1/max(self.speed)  #seconds
+    
         self.timer = self.create_timer(timer_period, self.handle_sensors)
 
         
     def handle_sensors(self):
-        try:
-            for idx, sensor in enumerate(self.sensors):
-                msg = WrenchStamped()
-                msg.header.stamp = self.get_clock().now().to_msg()
-                msg.header.frame_id = 'frame_' + self.sensor_serial_numbers[idx]
-                measurement = sensor.read(only_latest_data=True)
-                msg.wrench.force.x = measurement.Fx / self.scale[idx][0]
-                msg.wrench.force.y = measurement.Fy / self.scale[idx][1]
-                msg.wrench.force.z = measurement.Fz / self.scale[idx][2]
-                self.pubs[idx].publish(msg)
-        except:
-            pass
-        finally:
-            for sensor in self.sensors:
-                sensor.close()
+        for idx, sensor in enumerate(self.sensors):
+            msg = WrenchStamped()
+            msg.header.stamp = self.get_clock().now().to_msg()
+            msg.header.frame_id = 'frame_' + self.sensor_serial_numbers[idx]
+            measurement = sensor.read(only_latest_data=True)
+            msg.wrench.force.x = measurement.Fx / self.scale[idx][0]
+            msg.wrench.force.y = measurement.Fy / self.scale[idx][1]
+            msg.wrench.force.z = measurement.Fz / self.scale[idx][2]
+            self.pubs[idx].publish(msg)
+            print(msg)
+
+
 
 
 def main(args=None):

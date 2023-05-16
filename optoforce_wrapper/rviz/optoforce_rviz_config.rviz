@@ -8,6 +8,7 @@ Panels:
         - /RobotModel1
         - /TF1
         - /TF1/Frames1
+        - /Wrench1
       Splitter Ratio: 0.5
     Tree Height: 549
   - Class: rviz_common/Selection
@@ -85,7 +86,7 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: false
-        force_frame:
+        frame_IFE048:
           Value: true
         sensor_link:
           Value: false
@@ -96,9 +97,28 @@ Visualization Manager:
       Show Names: false
       Tree:
         sensor_link:
-          force_frame:
+          frame_IFE048:
             {}
       Update Interval: 0
+      Value: true
+    - Accept NaN Values: false
+      Alpha: 1
+      Arrow Width: 0.10000000149011612
+      Class: rviz_default_plugins/Wrench
+      Enabled: true
+      Force Arrow Scale: 0.20000000298023224
+      Force Color: 204; 51; 51
+      History Length: 1
+      Name: Wrench
+      Topic:
+        Depth: 5
+        Durability Policy: Volatile
+        Filter size: 10
+        History Policy: Keep Last
+        Reliability Policy: Reliable
+        Value: /optoforce_IFE048
+      Torque Arrow Scale: 2
+      Torque Color: 204; 204; 51
       Value: true
   Enabled: true
   Global Options:
@@ -146,25 +166,25 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 0.16161957383155823
+      Distance: 0.6296660900115967
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 0.0024828584864735603
-        Y: -0.003648855024948716
-        Z: 0.008329182863235474
+        X: 0.018228748813271523
+        Y: -0.023880023509263992
+        Z: 0.09424137324094772
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.6053981184959412
+      Pitch: 0.2853984236717224
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 2.295398712158203
+      Yaw: 2.415400505065918
     Saved: ~
 Window Geometry:
   Displays:
@@ -182,5 +202,5 @@ Window Geometry:
   Views:
     collapsed: false
   Width: 1200
-  X: 2340
-  Y: 197
+  X: 2763
+  Y: 206
