@@ -16,11 +16,11 @@ pip3 install optoforce
 1. Check the name of the serial port into which your Optoforce sensor is plugged by using `python3 list_ports.py`.
 2. Change the parameters values in **config/optoforce_params.yaml** file. Calibration data (_scale_ parameter) to convert the sensor's readings into force expressed in Newtons can be found on the flash drive that comes with the sensor.
 3. Verify that the sensor is working properly by running `ros2 launch optoforce_wrapper optoforce_test.launch.py`. In RViz, the sensor model and force readings (as _geometry_msgs/msg/WrenchStamped_ messages) will be visualized.
-4. To read the measurements from the sensor(-s) you need to run _optoforce_node_ node and load the parameters from the YAML file. Use the following command:
+4. To read the measurements from the sensor(-s) you need to run _optoforce_node_ node and load the parameters from the YAML file. Use the command below. By default one sensor will be used, if you want to use two sensors, set the value of _num_of_sensors_in_use_ argument to 2 (`num_of_sensors_in_use:=2`).
 ```
 ros2 launch optoforce_wrapper optoforce_read.launch.py
 ```
-By default ...
+
 
 ## Documentation :spiral_notepad:
 - [**OptoForce custom DAQ specification - SPI**](http://www.cs.cmu.edu/~cga/optoforce/optoforce-spi.pdf)  
