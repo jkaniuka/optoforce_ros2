@@ -28,7 +28,5 @@ In 2018, Optoforce was acquired by [**OnRobot**](https://onrobot.com/pl). The li
 
 ## TODO:
 
-- [ ] rqt_plot
 - [ ] RViz visualization
-- [ ] test both sensors
 
