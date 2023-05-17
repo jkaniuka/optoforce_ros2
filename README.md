@@ -27,8 +27,3 @@ ros2 launch optoforce_wrapper optoforce_read.launch.py
 
 ## Good to know :detective:
 In 2018, Optoforce was acquired by [**OnRobot**](https://onrobot.com/pl). The links to Optoforce's website redirect to Onrobot's website, where the **Page not found (404)** error appears, so don't be surprised :wink:
-
-## TODO:
-
-- [ ] RViz visualization
-
