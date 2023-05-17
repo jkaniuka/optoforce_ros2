@@ -20,6 +20,7 @@ pip3 install optoforce
 ```
 ros2 launch optoforce_wrapper optoforce_read.launch.py
 ```
+By default ...
 
 ## Documentation :spiral_notepad:
 - [**OptoForce custom DAQ specification - SPI**](http://www.cs.cmu.edu/~cga/optoforce/optoforce-spi.pdf)  

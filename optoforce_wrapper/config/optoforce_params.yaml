@@ -1,6 +1,5 @@
 /optoforce_node:
   ros__parameters:
-    num_of_sensors_in_use: 1
     sensor_serial_numbers: ['IFE048', 'IFE049']
     port: ['/dev/ttyACM0', '/dev/ttyACM1']
     speed: [100, 100]
