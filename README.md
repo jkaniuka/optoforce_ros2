@@ -2,7 +2,7 @@
 
 <h2 align="center">:warning: Tested on OMD-20-FE-200N 3-axis force sensor :warning:</h2> 
 <p align="center">
-<img src="https://github.com/jkaniuka/optoforce_ros2/assets/80155305/b73e3afe-6a09-474e-b10f-f6044036163a" width="300" height="250"/><img src="https://github.com/jkaniuka/optoforce_ros2/assets/80155305/fc0aaf77-cd6f-47e9-9d28-0a5eab07a767" width="350" height="250"/>
+<img src="https://github.com/jkaniuka/optoforce_ros2/assets/80155305/cc192693-7ba9-4b0f-b7db-6b59ea8c70b8" width="300" height="250"/><img src="https://github.com/jkaniuka/optoforce_ros2/assets/80155305/fc0aaf77-cd6f-47e9-9d28-0a5eab07a767" width="350" height="250"/>
 </p> 
 
 
